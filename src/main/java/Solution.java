@@ -8,7 +8,20 @@ public class Solution {
      */
 
     public int alternatingCharacters(String s) {
-        // Write your code here
-        return 0;
+        StringBuilder sBuilder = new StringBuilder(s);
+        int count = 0;
+        for (int i = 0; i < sBuilder.length();) {
+            if (sBuilder.length() == 1 || i == sBuilder.length()-1) {
+                break;
+            }
+            if (sBuilder.charAt(i+1) == sBuilder.charAt(i)) {
+                sBuilder.deleteCharAt(i + 1);
+                count++;
+            }
+            else {
+                i++;
+            }
+        }
+        return count;
     }
 }
